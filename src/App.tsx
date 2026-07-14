@@ -159,8 +159,8 @@ export default function Home() {
         <section className="intro-screen">
           <div className="intro-copy">
             <p className="eyebrow"><span /> FAN-MADE RAILWAY QUIZ</p>
-            <h1>
-              イラストの中の電車、<br />
+            <h1 className="intro-title">
+              <span>イラストの中の電車、</span>
               <em>いくつわかりますか？</em>
             </h1>
             <p className="intro-description">

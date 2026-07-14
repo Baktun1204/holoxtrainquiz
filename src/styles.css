@@ -225,6 +225,11 @@ a:focus-visible {
   letter-spacing: -0.055em;
 }
 
+.intro-title > span,
+.intro-title > em {
+  display: block;
+}
+
 .intro-copy h1 em {
   color: transparent;
   background: linear-gradient(95deg, var(--cyan-deep), var(--blue) 50%, var(--pink));
@@ -1183,8 +1188,18 @@ footer p {
 
   .intro-copy h1,
   .result-card h1 {
-    font-size: clamp(34px, 10vw, 44px);
-    overflow-wrap: anywhere;
+    font-size: clamp(28px, 8vw, 40px);
+    line-height: 1.22;
+    letter-spacing: -0.045em;
+  }
+
+  .intro-title > span,
+  .intro-title > em {
+    white-space: nowrap;
+  }
+
+  .intro-title > em {
+    margin-top: 0.12em;
   }
 
   .intro-description {
