@@ -1,5 +1,5 @@
 :root {
-  --font-geist-sans: Inter, Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+  --font-geist-sans: Inter, "Hiragino Sans", "Yu Gothic", "YuGothic", Meiryo, "Noto Sans JP", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
   --font-geist-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --navy: #071426;
   --navy-soft: #10233d;
@@ -607,9 +607,9 @@ a:focus-visible {
   margin: 0;
   color: var(--navy);
   font-size: clamp(27px, 2.4vw, 38px);
-  font-weight: 850;
-  line-height: 1.22;
-  letter-spacing: -0.04em;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.025em;
 }
 
 .question-copy > span {
@@ -1300,7 +1300,16 @@ footer p {
   }
 
   .question-copy h2 {
-    font-size: 29px;
+    font-size: clamp(24px, 7vw, 28px);
+    font-weight: 700;
+    line-height: 1.34;
+    letter-spacing: -0.025em;
+  }
+
+  .question-copy > span {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.65;
   }
 
   .choice-button {
