@@ -186,14 +186,20 @@ export default function Home() {
 
           <div className="intro-art" aria-label="クイズアートワークのプレビュー">
             <div className="art-card art-card-main">
-              <img src={assetUrl("artworks/tokino-sora.webp")} alt="ときのそらと小田急VSEのアートワーク" />
+              <img
+                src={assetUrl("artworks/tokino-sora.webp")}
+                alt="ときのそらと小田急VSEのアートワーク"
+                width="1200"
+                height="676"
+                fetchPriority="high"
+              />
               <span>MEMBER × TRAIN</span>
             </div>
             <div className="art-card art-card-top" aria-hidden="true">
-              <img src={assetUrl("artworks/kobo-kanaeru.webp")} alt="" />
+              <img src={assetUrl("artworks/kobo-kanaeru.webp")} alt="" width="1200" height="676" loading="lazy" />
             </div>
             <div className="art-card art-card-bottom" aria-hidden="true">
-              <img src={assetUrl("artworks/elizabeth-rose-bloodflame.webp")} alt="" />
+              <img src={assetUrl("artworks/elizabeth-rose-bloodflame.webp")} alt="" width="1200" height="676" loading="lazy" />
             </div>
             <div className="orbit orbit-one" aria-hidden="true" />
             <div className="orbit orbit-two" aria-hidden="true" />
@@ -217,6 +223,10 @@ export default function Home() {
               <img
                 src={assetUrl(`artworks/${current.id}.webp`)}
                 alt={`${current.japaneseName}と日本の電車が描かれたクイズアートワーク`}
+                width="1200"
+                height="676"
+                fetchPriority="high"
+                decoding="async"
               />
               <div className="artwork-shade" />
               <div className="artwork-topline">
@@ -302,7 +312,7 @@ export default function Home() {
       {phase === "result" && (
         <section className="result-screen">
           <div className="result-art" aria-hidden="true">
-            <img src={assetUrl("artworks/hoshimachi-suisei.webp")} alt="" />
+            <img src={assetUrl("artworks/hoshimachi-suisei.webp")} alt="" width="1200" height="676" loading="lazy" />
             <div />
           </div>
           <div className="result-card">

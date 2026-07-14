@@ -23,14 +23,23 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-geist-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 button,
@@ -42,6 +51,7 @@ select {
 
 button {
   color: inherit;
+  touch-action: manipulation;
 }
 
 button:focus-visible,
@@ -53,7 +63,7 @@ a:focus-visible {
 .site-shell {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   background:
     linear-gradient(rgba(9, 75, 104, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(9, 75, 104, 0.035) 1px, transparent 1px),
@@ -229,7 +239,8 @@ a:focus-visible {
   color: #61758a;
   font-size: 17px;
   line-height: 1.9;
-  word-break: keep-all;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 .intro-facts {
@@ -494,8 +505,10 @@ a:focus-visible {
   transition: transform 9s ease;
 }
 
-.artwork-panel:hover > img {
-  transform: scale(1.035);
+@media (hover: hover) and (pointer: fine) {
+  .artwork-panel:hover > img {
+    transform: scale(1.035);
+  }
 }
 
 .artwork-shade {
@@ -791,7 +804,8 @@ a:focus-visible {
   color: #607286;
   font-size: 12px;
   line-height: 1.78;
-  word-break: keep-all;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 .explanation-copy p + p {
@@ -933,7 +947,8 @@ a:focus-visible {
   color: #5f7287;
   font-size: 16px;
   line-height: 1.8;
-  word-break: keep-all;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 .result-stats {
@@ -1135,6 +1150,14 @@ footer p {
 }
 
 @media (max-width: 600px) {
+  .site-shell {
+    overflow-x: hidden;
+  }
+
+  .ambient {
+    display: none;
+  }
+
   .site-header {
     height: 76px;
   }
@@ -1150,9 +1173,18 @@ footer p {
     padding: 45px 0 70px;
   }
 
+  .intro-copy,
+  .intro-art,
+  .quiz-frame,
+  .result-art,
+  .result-card {
+    animation: none;
+  }
+
   .intro-copy h1,
   .result-card h1 {
-    font-size: 44px;
+    font-size: clamp(34px, 10vw, 44px);
+    overflow-wrap: anywhere;
   }
 
   .intro-description {
@@ -1177,8 +1209,10 @@ footer p {
   }
 
   .intro-art {
-    height: 410px;
+    width: 100%;
+    height: auto;
     min-height: 0;
+    aspect-ratio: 1200 / 676;
   }
 
   .art-card {
@@ -1187,11 +1221,16 @@ footer p {
   }
 
   .art-card-main {
-    inset: 7% 3% 5% 3%;
+    inset: 0;
+    transform: none;
   }
 
   .art-card-top,
   .art-card-bottom {
+    display: none;
+  }
+
+  .orbit {
     display: none;
   }
 
@@ -1205,6 +1244,7 @@ footer p {
     gap: 12px;
     min-height: 66px;
     padding: 0 16px;
+    backdrop-filter: none;
   }
 
   .progress-deck > div:first-child > span {
@@ -1218,8 +1258,15 @@ footer p {
   }
 
   .artwork-panel {
-    min-height: 62vw;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 1200 / 676;
     border-radius: 22px;
+  }
+
+  .artwork-panel > img {
+    transform: none !important;
+    transition: none;
   }
 
   .artwork-topline {
@@ -1235,7 +1282,10 @@ footer p {
   }
 
   .member-title h2 {
-    font-size: 27px;
+    max-width: calc(100% - 8px);
+    font-size: clamp(20px, 7vw, 27px);
+    line-height: 1.05;
+    overflow-wrap: anywhere;
   }
 
   .member-title span,
@@ -1246,6 +1296,7 @@ footer p {
   .answer-panel {
     padding: 25px 18px;
     border-radius: 22px;
+    backdrop-filter: none;
   }
 
   .question-copy h2 {
@@ -1253,12 +1304,14 @@ footer p {
   }
 
   .choice-button {
+    grid-template-columns: 36px minmax(0, 1fr) 26px;
     min-height: 61px;
     padding-inline: 11px;
   }
 
   .choice-text {
     font-size: 12px;
+    overflow-wrap: anywhere;
   }
 
   .explanation-copy p {
@@ -1266,12 +1319,15 @@ footer p {
   }
 
   .result-art {
-    height: 360px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1200 / 676;
     border-width: 5px;
+    transform: none;
   }
 
   .final-score strong {
-    font-size: 105px;
+    font-size: clamp(78px, 26vw, 105px);
   }
 
   .result-stats {
